@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="aye">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    
+    <ion-icon class="perfil" name="person-circle-sharp"></ion-icon>
+    <ion-label>
+      <ion-item  >
+        <ion-icon name="person-sharp"></ion-icon>
+        <b style="padding: 5px;" >Usuario </b> 
+       </ion-item>
+    </ion-label>
+    <ion-label>
+      <ion-item>{{username}}</ion-item></ion-label>
+    
+    <ion-label>
+      <ion-item  ><ion-icon name="mail-sharp"></ion-icon>
+         <b style="padding: 5px;"> Email </b> 
+      </ion-item>
+     </ion-label>
+     <ion-label>
+       <ion-item>
+        {{email}}
+       </ion-item>
+     </ion-label>
+     <ion-label>
+     <ion-item >
+      <ion-icon name="reader-sharp"></ion-icon>
+      <b>Programa </b>
+      
+     </ion-item>
+    </ion-label>
+    <ion-label >
+      <ion-item (click)="showS=!showS">
+       {{programa}}<ion-button fill="clear">
+        <ion-icon size="small" name="chevron-forward-sharp"></ion-icon>
+        </ion-button>
+
+      </ion-item>
+      <ion-item *ngIf="showS">
+        <ion-label>Programa</ion-label>
+        <ion-select color="aye" #C (ionChange)="onChange($event)" placeholder="Select One">
+          <ion-select-option value="p">Personalizado</ion-select-option>
+          <ion-select-option value="m">Musculacion</ion-select-option>
+          <ion-select-option value="t">Tonificar</ion-select-option>
+          <ion-select-option value="a">Adelgazar</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-label>
+    <ion-label >
+      <ion-button (click)="OnlogOut()" color="light"><ion-icon name="log-out-sharp"></ion-icon>
+        Cerrar Sesion
+    </ion-button >
+    </ion-label>
+
+  </ion-card>
+</ion-content>

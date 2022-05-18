@@ -1,0 +1,198 @@
+<ion-header>
+  <ion-toolbar color="aye">
+    <ion-buttons *ngIf="!showSearchbar" slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title >Progreso
+    </ion-title>
+    <ion-button fill="clear" slot="end">
+      <ion-icon color="light" name="information-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<ion-content>
+
+  <ion-card>
+    <!--Datos Generales-->
+    <ion-item color="aye">
+      <ion-label>
+        Datos Generales <ion-icon name="analytics-sharp"></ion-icon>
+      </ion-label>
+    </ion-item>
+
+    <ion-item routerLink="/peso" color="light">
+      <ion-label style="display: flex; align-items:center;">
+        <ion-icon name="scale-outline"></ion-icon>   
+          Peso
+      </ion-label>
+      <ion-badge color="light" fill="clear">{{peso_actual}} kg</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+
+    </ion-item>
+    <ion-item class="text" (click)="Show()" color="light">
+      <ion-label>
+        <ion-icon name="body-sharp"></ion-icon>
+        Estatura
+      </ion-label>
+      <ion-badge color="light">{{altura}} cm</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+
+    </ion-item>
+    <ion-input [(ngModel)]="altura" *ngIf="show" type="number" placeholder="Altura">
+      <ion-button (click)="Altura()" fill="clear">OK</ion-button>
+    </ion-input>
+    <ion-item routerLink="/imc" color="light">
+      <ion-label>
+        <ion-icon name="fitness-sharp"></ion-icon> IMC
+      </ion-label>
+      <ion-badge color="light">{{imc_actual}} %</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+
+    </ion-item>
+    <ion-item routerLink="/kcal" color="light">
+      <ion-label>
+        <ion-icon name="flash-outline"></ion-icon> Kcal
+      </ion-label>
+      <ion-badge color="light">{{kcal}} kcal</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+
+    </ion-item>
+  </ion-card>
+  <!--Medidas-->
+  <ion-card>
+    <ion-item color="aye">
+      <ion-label style="display: flex; align-items:center;">Medidas <ion-img
+          style="width: 15px; height: 15px;margin-left: 7px; " src=".././assets/cinta.png"></ion-img>
+      </ion-label>
+
+    </ion-item>
+    <ion-item (click)="show_hombro=!show_hombro" color="light">
+      <ion-label style="display: flex; align-items:center;">
+        <ion-img style="width: 15px; height: 15px;margin-right: 7px; " src=".././assets/cinta.png"></ion-img> Hombro
+      </ion-label>
+
+      <ion-badge color="light">{{hombro}}</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+
+    </ion-item>
+    <ion-input [(ngModel)]="hombro" *ngIf="show_hombro" placeholder="25 cm">
+      <ion-button (click)="A_Hombro()" fill="clear">OK</ion-button>
+    </ion-input>
+    <ion-item (click)="show_cuello=!show_cuello" color="light">
+      <ion-label style="display: flex; align-items:center;">
+        <ion-img style="width: 15px; height: 15px;margin-right: 7px; " src=".././assets/cinta.png"></ion-img> Cuello
+      </ion-label>
+      <ion-badge color="light">{{cuello}}</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-input [(ngModel)]="cuello" *ngIf="show_cuello" placeholder="25 cm">
+      <ion-button (click)="A_Cuello()" fill="clear">OK</ion-button>
+    </ion-input>
+
+    <ion-item (click)="show_brazo=!show_brazo" color="light">
+      <ion-label style="display: flex; align-items:center;">
+        <ion-img style="width: 15px; height: 15px;margin-right: 7px; " src=".././assets/cinta.png"></ion-img> Brazo
+      </ion-label>
+      <ion-badge color="light">{{brazo}}</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-input [(ngModel)]="brazo" *ngIf="show_brazo" placeholder="25 cm">
+      <ion-button (click)="A_Brazo()" fill="clear">OK</ion-button>
+    </ion-input>
+
+    <ion-item (click)="show_antebrazo=!show_antebrazo" color="light">
+      <ion-label style="display: flex; align-items:center;">
+        <ion-img style="width: 15px; height: 15px;margin-right: 7px; " src=".././assets/cinta.png"></ion-img> Antebrazo
+      </ion-label>
+      <ion-badge color="light">{{antebrazo}}</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-input [(ngModel)]="antebrazo" *ngIf="show_antebrazo" placeholder="25 cm">
+      <ion-button (click)="A_Antebrazo()" fill="clear">OK</ion-button>
+    </ion-input>
+
+    <ion-item (click)="show_cadera=!show_cadera" color="light">
+      <ion-label style="display: flex; align-items:center;">
+        <ion-img style="width: 15px; height: 15px;margin-right: 7px; " src=".././assets/cinta.png"></ion-img> Cadera
+      </ion-label>
+      <ion-badge color="light">{{cadera}}</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-input [(ngModel)]="cadera" *ngIf="show_cadera" placeholder="25 cm">
+      <ion-button (click)="A_Cadera()" fill="clear">OK</ion-button>
+    </ion-input>
+
+    <ion-item (click)="show_cintura=!show_cintura" color="light">
+      <ion-label style="display: flex; align-items:center;">
+        <ion-img style="width: 15px; height: 15px;margin-right: 7px; " src=".././assets/cinta.png"></ion-img> Cintura
+      </ion-label>
+      <ion-badge color="light">{{cintura}}</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-input [(ngModel)]="cintura" *ngIf="show_cintura" placeholder="25 cm">
+      <ion-button (click)="A_Cintura()" fill="clear">OK</ion-button>
+    </ion-input>
+
+    <ion-item (click)="show_pecho=!show_pecho" color="light">
+      <ion-label style="display: flex; align-items:center;">
+        <ion-img style="width: 15px; height: 15px;margin-right: 7px; " src=".././assets/cinta.png"></ion-img> Pecho
+      </ion-label>
+      <ion-badge color="light">{{pecho}}</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-input [(ngModel)]="pecho" *ngIf="show_pecho" placeholder="25 cm">
+      <ion-button (click)="A_Pecho()" fill="clear">OK</ion-button>
+    </ion-input>
+
+    <ion-item (click)="show_muslos=!show_muslos" color="light">
+      <ion-label style="display: flex; align-items:center;">
+        <ion-img style="width: 15px; height: 15px;margin-right: 7px; " src=".././assets/cinta.png"></ion-img> Muslos
+      </ion-label>
+      <ion-badge color="light">{{muslos}}</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-input [(ngModel)]="muslos" *ngIf="show_muslos" placeholder="25 cm">
+      <ion-button (click)="A_Muslos()" fill="clear">OK</ion-button>
+    </ion-input>
+
+    <ion-item (click)="show_gemelos=!show_gemelos" color="light">
+      <ion-label style="display: flex; align-items:center;">
+        <ion-img style="width: 15px; height: 15px;margin-right: 7px; " src=".././assets/cinta.png"></ion-img> Gemelos
+      </ion-label>
+      <ion-badge color="light">{{gemelos}}</ion-badge>
+      <ion-button fill="clear">
+        <ion-icon name="chevron-forward-sharp"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-input [(ngModel)]="gemelos" *ngIf="show_gemelos" placeholder="25 cm">
+      <ion-button (click)="A_Gemelos()" fill="clear">OK</ion-button>
+    </ion-input>
+  </ion-card>
+
+</ion-content>

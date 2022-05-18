@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="aye">
+    <ion-buttons style="padding-right: 7px;" fill="clear" color="dark" slot="end">
+      <ion-icon  name="information-circle-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button routerLink="../app/tabs/progress"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-label style="display: flex; align-items:center;">Peso <ion-img
+          style="width: 15px; height: 15px;margin-left: 7px; " src=".././assets/bascula.png"></ion-img>
+        
+      </ion-label>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-card>
+    <div style="padding: 7.5%;">
+      <b color="aye" (click)="Show()">
+        Peso inicial <ion-icon name="create-sharp"></ion-icon>
+      </b>
+
+      <span style="float: right;">
+        <b (click)="Show2()">
+          Peso actual <ion-icon name="create-sharp"></ion-icon>
+        </b>
+      </span>
+
+    </div>
+
+    <ion-item>
+      <ion-badge color="aye" style="font-size: large;" slot="end" id="peso_actual">{{peso_actual}} kg <ion-input
+          [(ngModel)]="peso_actual" *ngIf="show2" type="number" placeholder="Peso actual">
+          <ion-button (click)="Peso_actual()" color="light">OK</ion-button>
+        </ion-input>
+      </ion-badge>
+      <ion-label style="text-align: center;">
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </ion-label>
+      <ion-badge style="font-size: large; " color="light" slot="start">{{peso_inicial}} kg <ion-input
+          [(ngModel)]="peso_inicial" *ngIf="show" type="number" placeholder="Peso inicial">
+          <ion-button (click)="Peso_inicial()" fill="clear">OK</ion-button>
+        </ion-input>
+      </ion-badge>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <div style=" padding-top: 15%; text-align: center;">
+      <b (click)="Show3()">
+        Tu peso objetivo es: <ion-icon name="create-sharp"></ion-icon>
+
+      </b>
+      <ion-input [(ngModel)]="peso_objetivo" *ngIf="show3" type="number" placeholder="Peso objetivo">
+        <ion-button (click)="Peso_objetivo()" fill="clear">OK</ion-button>
+      </ion-input>
+    </div>
+
+    <div style=" padding-top: 10%; text-align: center;">
+      <ion-label>
+        <ion-icon name="arrow-down-outline"></ion-icon>
+      </ion-label>
+    </div>
+    <ion-item>
+
+      <ion-label style="text-align: center; font-size: small; width: 25px; padding-top: 8%;">
+        <ion-text style="font-size: 40px;font-weight: bold;" slot="start" color="aye">
+          <ion-icon size="medium" name="trophy-outline"></ion-icon> {{peso_objetivo}} kg
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+  <div style="padding: 0%;">
+    <ion-button (click)="updateChart()"><ion-icon name="refresh-outline"></ion-icon></ion-button>
+      
+      <div id="chart_div" style="width: 100%; height: 150px;"></div>
+  </div>
+</ion-content>

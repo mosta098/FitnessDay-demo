@@ -1,0 +1,6 @@
+{
+	"appId": "com.ionicframework.FitnessApp",
+	"appName": "fitness_day",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

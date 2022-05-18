@@ -1,0 +1,10 @@
+{
+  "name": "fitness_day",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

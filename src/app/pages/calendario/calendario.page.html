@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="aye">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons style="padding-right: 7px;" fill="clear" color="dark" slot="end">
+      <ion-icon name="information-circle-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Calendario <ion-icon name="calendar-outline"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-content color="light" id="calendar" style="--padding: 7px;  margin: auto; text-align: center;">
+    <span *ngFor="let dia of dias;let i">
+      <span *ngIf="(dia_actual==dia); else loggedOut">
+        <ion-button style="width: 60px;" color="light" routerLink="/app/tabs/comidas">
+          {{i}}
+        </ion-button>
+      </span>
+      <ng-template #loggedOut>
+        <ng-container *ngIf="(dia_actual>dia); else loggedOut2">
+          <ion-button disabled="true" style="width: 60px;" color="success" (click)="Show($event)">
+            {{i}}
+          </ion-button>
+        </ng-container>
+      </ng-template>
+      <ng-template #loggedOut2>
+        <ion-button disabled="true" style="width: 60px;" color="medium" (click)="Show($event)">
+          {{i}}
+        </ion-button>
+      </ng-template>
+
+    </span>
+    <br>
+    <br>
+    <ion-label color="medium" style="font-size: 14px;text-align: center;">"{{frase}}"</ion-label>
+
+
+  </ion-content>
+
+</ion-content>

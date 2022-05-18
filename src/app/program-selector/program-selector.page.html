@@ -1,0 +1,117 @@
+
+      <ion-content>
+        <ion-slides pager="true" pager="false" [options]="slideOpts" #mySlider>
+          <ion-slide> 
+           <ion-content>
+          
+          <ion-img class="logo" style="width: 240px; padding-top: 25%;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;" size="small" src="../../../assets/LOGO.png"></ion-img>
+              <div style="padding-top: 10%;text-align: center;font-size: 15px;
+              text-justify: inter-word; margin-left: 15%;margin-right: 15%;" >
+             <h4 >Hola!</h4> <p>
+              Te damos la bienvenida a FitnessDay.
+              La mejor forma de progresar en tu físico de manera <ion-text color="aye"><b>Rapida</b></ion-text>,<ion-text color="aye"><b> Sencilla </b></ion-text>y <ion-text color="aye"><b>Organizada</b></ion-text>
+              
+            </p>
+             
+              </div>
+              <ion-button color="aye" style="float: right;" (click)="botoSkip()">
+                Skip
+                <ion-icon slot="end" name="arrow-forward"></ion-icon>
+              </ion-button>
+            
+  
+            </ion-content> 
+          </ion-slide>
+          <ion-slide >
+            <ion-content>
+            <ion-card style="padding-top: 25px;">
+              
+
+             
+              
+              
+                <h3></h3>
+                <div >
+                  
+                    <div><ion-icon name="body-outline" size="large"></ion-icon><p> En esta aplicación podras escojer el programa que te damos donde te facilitamos <ion-text color="aye"><b>Ejercicios y dietas</b> </ion-text> dependiendo de si tu objetivo es 
+                      <ion-text color="aye"><b>Adelgazar,</b></ion-text><ion-text color="aye"><b>Tonificar, </b></ion-text><ion-text color="aye"><b>Musculación o</b> </ion-text> si tienes uno<ion-text color="aye"><b> Personalizado</b></ion-text>.
+                    </p>
+                    </div>
+                    <div><ion-icon name="calendar-outline"size="large"></ion-icon>
+                      <p>Podrás acceder cada dia con una nueva rutina diaria en forma de <ion-text color="aye"><b>Calendario</b></ion-text> (30 dias) los cuales se van completando a medida que avances
+                    </p>
+                    </div>
+                    <div><ion-icon size="large" name="bar-chart-outline"></ion-icon>
+                      <p>Siempre podrás ver y anotar los <ion-text color="aye"><b>Cambios</b></ion-text> y el <ion-text color="aye"><b>Progreso </b></ion-text> que hayas hecho en tu fisico y compararlo inicialmente
+                    </p>
+                    </div>
+                  
+                </div>
+                  <ion-button color="aye" style="float: right;"  (click)="botoSkip()">
+                  Skip
+                  <ion-icon slot="end" name="arrow-forward"></ion-icon>
+                </ion-button>
+                </ion-card>
+                  
+                  
+                
+              </ion-content>
+          </ion-slide>
+          <!--2n-->
+          <ion-slide >
+            <ion-content>
+            <ion-card style="padding-top: 25px;">
+              <ion-label style="padding-top: 0%; margin: 0px;"> <b>Empezemos por escojer tu programa</b></ion-label> 
+
+              <ion-list >
+                <ion-item>
+                  <ion-label>Programa</ion-label>
+                  <ion-select color="aye" #C (ionChange)="onChange($event)" placeholder="Select One" >
+                    <ion-select-option value="a">Adelgazar</ion-select-option>
+                    <ion-select-option value="t">Tonificar</ion-select-option>
+                    <ion-select-option value="m">Musculación</ion-select-option>
+                    <ion-select-option value="p">Personalizado</ion-select-option>
+                  </ion-select>
+                </ion-item>
+                
+                <!--
+                <ion-radio-group value="biff">
+              
+                  
+              
+                  <ion-item>
+                    <ion-label><ion-img class="logo" style="width: 150px;height: 200px;
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto; margin-bottom: 0;" size="small" src="../../../assets/tonificar.jpg"></ion-img>
+                      
+                    
+                  </ion-item>
+            
+                </ion-radio-group>-->
+              </ion-list>
+              
+              <div>
+                <h3 >{{titol}}</h3>
+                <div id="rutina">
+                  
+                </div>
+                <div>
+                  {{descripcion}}
+                </div>
+              </div>
+                  <ion-button color="aye" style="float: right;"  (click)="botoSkipPrograma()">
+                    Empezemos
+                  <ion-icon slot="end" name="arrow-forward"></ion-icon>
+                </ion-button>
+                </ion-card>
+                  
+                  
+                
+              </ion-content>
+          </ion-slide>
+        </ion-slides>
+      </ion-content>

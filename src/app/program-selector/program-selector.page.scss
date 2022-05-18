@@ -1,0 +1,28 @@
+/* Without setting height the slides will take up the height of the slide's content */
+ion-slides {
+    height: 100%;
+    width: 100%;
+  }
+  ion-item{
+    margin-bottom: 0px;
+
+  }
+  ion-radio-group{
+    margin-bottom: 200px;
+  }
+  ion-list{
+    margin-bottom: 0px;
+    
+  }
+  ion-select {
+    /* Applies to the value and placeholder color */
+    color: #0494c4;
+  
+    /* Set a different placeholder color */
+    --placeholder-color: #444444;
+  
+    /* Set full opacity on the placeholder */
+    --placeholder-opacity: 1;
+    
+  }
+  

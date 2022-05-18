@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar color="aye">
+    <ion-buttons *ngIf="!showSearchbar" slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ejercicios
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-slides pager="true" pager="false" [options]="slideOpts" #mySlider *ngIf="show">
+    <ion-slide>
+
+        <ion-content color="light">
+          <ion-item *ngIf="showN">
+            <ion-label>Nivel</ion-label>
+            <ion-select color="aye" #C (ionChange)="onChange($event)" placeholder="Select One">
+              <ion-select-option value="p">Principiante</ion-select-option>
+              <ion-select-option value="m">Medio</ion-select-option>
+              <ion-select-option value="pro">Pro</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-label coloR="medium">{{Entr_predeterminados}}</ion-label>
+
+
+          <ion-list *ngFor="let item of ejerciciosList;let i">
+            <ion-card color="aye" style="padding:4%">
+
+              <div style="height: 80px;">
+                <ion-icon size="small" style=" position: absolute;
+                top: 8px;
+                right: 16px;
+                font-size: 18px;" name="close-sharp"></ion-icon>
+              </div>
+              <div style=" padding: 8px; text-align: right;">
+                <b style=" padding-top: 4%;">
+                  <div id="name">
+                    {{item.name}}
+                  </div>
+                </b>
+
+                <div>{{item.series}}</div>
+               <!-- <div> {{item.descanso}}</div>-->
+                <div> {{item.duracion}}</div>
+
+              </div>
+              <ion-img style="width: 100px; height:100px;   position: absolute;
+              top: 8px;
+              left: 0px;
+              font-size: 18px; " [src]="item.href"></ion-img>
+
+
+
+
+            </ion-card>
+          </ion-list>
+          <ion-label coloR="medium">Entr. personalizados</ion-label>
+          <br>
+          <ion-list *ngFor="let item of mylist;let i" id="yourDiv">
+            <ion-card color="dark" style="padding:10%">
+              <div>
+                {{item.name}} <ion-img src="../../../assets/LOGO.png" style="width: 80px; height: 80px; "></ion-img>
+              </div>
+              <b>
+                <ion-label>{{item.duracion}}</ion-label>
+                <ion-label> {{item.sets}}</ion-label>
+              </b>
+              <ion-grid>
+                <ion-label>
+                  <ion-toggle (ionChange)="fet_ex()" color="success2"></ion-toggle>
+                </ion-label>
+
+              </ion-grid>
+
+            </ion-card>
+          </ion-list>
+
+          <ion-button color="light" *ngIf="showB" (click)="agregar()">
+            <ion-icon name="add-circle-sharp"></ion-icon>
+          </ion-button>
+          <ion-button color="light" *ngIf="showB" (click)="borrar()">
+            <ion-icon name="remove-circle-sharp"></ion-icon>
+          </ion-button>
+
+          <ion-list *ngIf="showI">
+            <ion-card color="light" style="padding:10%">
+              <b>
+                <ion-label>Titulo
+                  <ion-input [(ngModel)]="name_N" color="aye" placeholder="Peso muerto"></ion-input>
+                </ion-label>
+
+                <ion-label>Duracion<ion-textarea [(ngModel)]="duracion_N" color="aye" placeholder="1 min">
+                  </ion-textarea>
+                </ion-label>
+                <ion-label>Sets/reps <ion-textarea [(ngModel)]="series_N" color="aye" placeholder="3 x 15">
+                  </ion-textarea>
+                </ion-label>
+              </b>
+              <ion-button (click)="mostrar_Entrenament()">OK</ion-button>
+              <ion-button (click)="showI=!show">Cancelar</ion-button>
+
+
+            </ion-card>
+          </ion-list>
+          <!--
+      <table >
+      <tr>
+        <th>{{item.name}} <ion-checkbox></ion-checkbox></th><ion-img [src]="item.href"></ion-img>
+      </tr>
+      <tr>
+        <td>{{item.series}}</td>
+      </tr>
+      <tr>
+        <td>{{item.descanso}}</td>
+      </tr>
+      <tr>
+        <td>{{item.duracion}}</td>
+      </tr>
+    </table>
+-->
+          <br>
+          <ion-button (click)="fet()" color="aye">
+            Hecho!
+          </ion-button>
+        </ion-content>
+
+    </ion-slide>
+    <ion-slide>
+      <h4>aaa</h4>
+    </ion-slide>
+  </ion-slides>
+  <ion-content *ngIf="showM">
+    <ion-item>
+
+      <ion-img class="logo" size="small" style="width: 25px; height: 25px;" src="../../../assets/tick.png"></ion-img>
+      <span style="padding-left: 25px; ">Felicidades completaste los ejercicios del dia!!<br>Puedes avanzar con el
+        siguiente dia si has completado las comidas</span>
+    </ion-item>
+    <ion-button (click)="no_fet()" color="aye">
+      No he terminado de entrenar...
+    </ion-button>
+    <ion-button routerLink="/app/tabs/calendario" color="aye">
+      <ion-icon name="calendar-outline"></ion-icon>
+    </ion-button>
+    <ion-button routerLink="/app/tabs/speakers" color="aye">
+      <ion-icon name="restaurant-sharp"></ion-icon>
+    </ion-button>
+  </ion-content>

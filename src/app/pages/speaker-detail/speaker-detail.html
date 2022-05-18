@@ -1,0 +1,35 @@
+<ion-content class="speaker-detail">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/app/tabs/speakers"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="speaker-background">
+    <img [src]="speaker?.profilePic" [alt]="speaker?.name">
+    <h2>{{speaker?.name}}</h2>
+  </div>
+
+  <div class="ion-padding speaker-detail">
+    <ion-list>
+      <ion-item>
+        <div>{{speaker?.about}}</div>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <div>{{speaker?.about2}}</div>
+        <ion-checkbox slot="start"></ion-checkbox>
+      </ion-item>
+
+    </ion-list>
+    <hr>
+    
+
+
+
+  </div>
+
+
+</ion-content>

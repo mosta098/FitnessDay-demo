@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar color="aye">
+    <ion-buttons slot="start">
+      <ion-button routerLink="../app/tabs/progress">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Calculador de kcal <ion-icon name="calculator-outline"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="padding:1%; margin:5%;">
+    <ion-card-header>
+      <ion-card-title color="aye">Genero</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-select #C (ionChange)="onChangeGenero($event)" [interfaceOptions]="customActionSheetOptions"
+          interface="action-sheet" placeholder="Selecciona">
+          <ion-select-option value="Hombre">Hombre</ion-select-option>
+          <ion-select-option value="Mujer">Mujer</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="padding:1%; margin:5%;">
+    <ion-card-header>
+      <ion-card-title color="aye">Edad</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Años</ion-label>
+        <ion-input [(ngModel)]="years" type="number" placeholder="21"></ion-input>
+
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card style="padding:1%; margin:5%;">
+    <ion-card-header>
+      <ion-card-title color="aye">Peso</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Kg</ion-label>
+        <ion-input required type="number" [(ngModel)]="peso" placeholder="85"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card style="padding:1%; margin:5%;">
+    <ion-card-header>
+      <ion-card-title color="aye">Altura</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>cm</ion-label>
+        <ion-input type="number" [(ngModel)]="altura" placeholder="178"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="padding:1%; margin:5%;">
+    <ion-card-header>
+      <ion-card-title color="aye">Actividad fisica</ion-card-title>
+      <ion-card-subtitle>Selecciona tu actividad</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- Checkboxes in a List -->
+      <ion-item>
+        <ion-select #C (ionChange)="onChangeEjercicio($event)" [interfaceOptions]="customActionSheetOptions"
+          interface="action-sheet" placeholder="Selecciona">
+          <ion-select-option value="0">Nada</ion-select-option>
+          <ion-select-option value="1">1 a 3 veces a la semana</ion-select-option>
+          <ion-select-option value="2">3 a 5 veces a la semana</ion-select-option>
+          <ion-select-option value="3">6 a 7 veces a la semana</ion-select-option>
+          <ion-select-option value="4">Atleta (4 horas al dia)</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  
+ 
+  <ion-button color="aye" style="top: 50%;left: 50%; margin-left:15px " expand="block" (click)="calculo()">
+    <ion-icon name="calculator-outline"></ion-icon>
+  </ion-button>
+  <ion-text color="aye">
+    <h1 style="text-align: center;">{{resultado}}</h1>
+  </ion-text>
+  <ion-button color="aye" style="top: 50%;left: 50%; margin-left:15px " expand="block" (click)="presentAlertConfirm()">
+    <ion-icon name="save-outline"></ion-icon>  
+  </ion-button>
+ 
+</ion-content>

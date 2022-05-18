@@ -1,0 +1,10 @@
+.tabbar {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.tab-button {
+  max-width: 200px;
+}
+/*# sourceMappingURL=tabs-page.css.map */

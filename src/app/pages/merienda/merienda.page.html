@@ -1,0 +1,215 @@
+<ion-header>
+  <ion-toolbar color="aye">
+    <ion-buttons style="padding-right: 7px;" fill="clear" color="dark" slot="end">
+      <ion-icon name="information-circle-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button routerLink="../app/tabs/comidas">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-label>Merienda
+
+      </ion-label>
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="aye">
+    <ion-segment (ionChange)="segmentChanged($event)" value="kcal">
+      <ion-segment-button value="kcal">
+        <ion-label>Kcal</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="macros">
+        <ion-label>Macros</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true" pager="false" [options]="slideOpts" #mySlider>
+    <ion-slide>
+
+
+      <ion-content>
+
+
+
+
+
+        <img style="border-radius:50% ;width: 150px; display: block;
+  margin-left: auto;
+  margin-right: auto; " src="../../../assets/img/speakers/eagle.jpg">
+
+        <ion-card>
+
+          <ion-item color="aye">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-title style="padding-left: 0px;">Descripción</ion-title>
+                </ion-col>
+                <ion-col>
+                  <ion-title style="float: right; padding-right: 0px;">Kcal <ion-icon name="flash-outline"></ion-icon>
+                  </ion-title>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+          <div *ngIf="!editar1">
+            <ion-button (click)="confirm1()" fill="clear">
+              <ion-icon color="aye" name="checkmark"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" (click)="editar1=!editar1">
+              <ion-icon color="danger" name="close"></ion-icon>
+            </ion-button>
+            <ion-textarea color="medium" [(ngModel)]="about"
+              style="width: 100%; height: 100%; border: 1px solid rgb(0, 189, 232) ;"></ion-textarea>
+          </div>
+          <ion-row>
+            <ion-button *ngIf="editar1" fill="clear" (click)="editar1=!editar1">
+              <ion-icon color="aye" name="create"></ion-icon>
+            </ion-button>
+
+          </ion-row>
+
+          <ion-row>
+            <ion-col style="margin-bottom: 0px; padding-bottom: 0px;">
+              <ion-text style="float: left;padding-left: 5%; " disabled readonly *ngIf="editar1" color="dark">
+                {{about}}</ion-text>
+            </ion-col>
+            <ion-col size="4">
+              <ion-badge color="light">
+                <ion-input color="aye" (ionChange)="total_kcal()" [(ngModel)]="about_kcal" type="number"
+                  style="text-align: right; font-size: larger; " placeholder="kcal" id="speaker">
+                </ion-input>
+              </ion-badge>
+            </ion-col>
+          </ion-row>
+         
+          <hr>
+          <ion-row>
+            <ion-title style="text-align: center;">Lista <ion-icon name="reader"></ion-icon></ion-title>
+          </ion-row> <div *ngIf="!editar2">
+            <ion-button fill="clear" (click)="confirm2()">
+              <ion-icon color="aye" name="checkmark"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" (click)="editar2=!editar2">
+              <ion-icon color="danger" name="close"></ion-icon>
+            </ion-button>
+
+            <ion-textarea color="medium" [(ngModel)]="about2"
+              style="width: 100%; height: 100%; border: 1px solid rgb(0, 189, 232) ;"></ion-textarea>
+          </div>
+          <ion-row>
+            <ion-button *ngIf="editar2" fill="clear" (click)="editar2=!editar2">
+              <ion-icon color="aye" name="create"></ion-icon>
+            </ion-button>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col>
+              
+              <ion-textarea style="text-align: left;  padding-left: 5%;" disabled readonly *ngIf="editar2" color="dark">
+                {{about2}}
+              </ion-textarea>
+            </ion-col>
+            <ion-col size="4">
+              <ion-badge color="light">
+                <ion-input (ionChange)="total_kcal()" color="aye" [(ngModel)]="about2_kcal" type="number"
+                  style="text-align: right;font-size: larger;" placeholder="kcal">
+                </ion-input>
+              </ion-badge>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+
+        <ion-button color="aye" style="top: 50%;left: 50%; margin-left:15px; margin-right:15px " expand="block"
+          (click)="presentAlertConfirm()">
+          <ion-icon name="save-sharp"></ion-icon>
+          <ion-title style="text-align:center;"><strong>{{total}} kcal
+            </strong></ion-title>
+
+
+        </ion-button>
+      </ion-content>
+    </ion-slide>
+    <ion-slide>
+
+
+      <!-- //------------------------2n slide Macros----------------- -->
+      <ion-content>
+
+        <img style="border-radius:50% ;width: 150px; display: block;
+        margin-left: auto;
+        margin-right: auto; " src="../../../assets/img/speakers/bear.jpg">
+
+        <ion-card>
+
+          <ion-item color="aye">
+            <ion-card-header>
+              <ion-card-title style="padding-left: 0px; color: white;">Valor Nutricional</ion-card-title>
+
+            </ion-card-header>
+          </ion-item>
+          <ion-card-content>
+
+
+            <!-- Macros -->
+
+
+            <ion-list>
+              <ion-accordion-group [multiple]="true" [value]="['about', 'about2']">
+                <ion-accordion value="about">
+                  <ion-item slot="header">
+                    <ion-card-subtitle color="aye" style="font-size: 16px; ">{{about}}</ion-card-subtitle>
+                  </ion-item>
+
+                  <ion-list slot="content">
+                    <ion-item>
+                      <ion-label>Red</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Green</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Blue</ion-label>
+                    </ion-item>
+                  </ion-list>
+                </ion-accordion>
+                <ion-accordion value="about2">
+                  <ion-item slot="header">
+                    <ion-card-subtitle color="aye" style="font-size: 16px; ">{{about2}}</ion-card-subtitle>
+                  </ion-item>
+
+                  <ion-list slot="content">
+                    <ion-item>
+                      <ion-label>Circle</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Triangle</ion-label>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Square</ion-label>
+                    </ion-item>
+                  </ion-list>
+                </ion-accordion>
+
+              </ion-accordion-group>
+            </ion-list>
+
+
+
+          </ion-card-content>
+        </ion-card>
+
+        <ion-button color="aye" style="top: 50%;left: 50%; margin-left:15px; margin-right:15px " expand="block"
+          (click)="presentAlertConfirm()">
+          <ion-icon name="save-sharp"></ion-icon>
+          <ion-title style="text-align:center;"><strong>{{total}} kcal
+            </strong></ion-title>
+        </ion-button>
+      </ion-content>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

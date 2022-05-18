@@ -1,0 +1,238 @@
+<ion-header>
+  <ion-toolbar color="aye">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons (click)="info()" style="padding-right: 7px;" fill="clear" color="dark" slot="end">
+      <ion-icon name="information-circle-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Comidas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="show">
+
+
+  <ion-card color="light" *ngIf="Dieta">
+
+    <ion-card-title style="text-align: center; padding-top: 10px;">ESCOJE TU DIETA </ion-card-title>
+    <div style=" padding-top: 10%; text-align: center;">
+      <ion-label>
+
+      </ion-label>
+    </div>
+    <ion-card-content style="text-align: center;">
+      Dieta recomendada por <ion-text color="aye"><b>FitnessDay</b></ion-text>
+    </ion-card-content>
+
+    <div class="container" (click)="presentAlertConfirm()">
+      <img src="../../../assets/logo app.png" alt="Avatar" class="image">
+      <div class="overlay">
+        <div class="text">Dieta preestablecida de fitnessDay segun programa. Atencion no se tiene en cuenta gustos ni
+          alergias como ahora intolerancias a la lactosa o gluten</div>
+        <!--Si seleccionas esta dieta FitnessDay te va a programar una dieta en base a tu físico, edad y programa que escogiste.-->
+      </div>
+    </div>
+
+    <hr style="height:3px;border-width:0;color:grey;background-color:grey">
+    <ion-card-content style="text-align: center;">
+      Dietas varias que saldran pronto...
+    </ion-card-content>
+
+    <ion-slides pager="true" pager="false" [options]="slideOpts" #mySlider>
+      <ion-slide>
+
+        <div class="container2">
+          <img src="../../../assets/dieta.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+            <div class="text">Seleccionar</div>
+            <!--Si seleccionas esta dieta FitnessDay te va a programar una dieta en base a tu físico, edad y programa que escogiste.-->
+          </div>
+        </div>
+
+
+        <ion-icon color="medium" style="float: right; padding-left: 30px;" slot="end" name="arrow-forward"
+          (click)="botoSkip()"></ion-icon>
+      </ion-slide>
+      <ion-slide>
+        <ion-icon color="medium" style="float: left; padding-right: 3px;" slot="end" name="arrow-back-outline"
+          (click)="botoBack()"></ion-icon>
+        <div class="container2">
+          <img src="../../../assets/dieta.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+            <div class="text">Seleccionar</div>
+            <!--Si seleccionas esta dieta FitnessDay te va a programar una dieta en base a tu físico, edad y programa que escogiste.-->
+          </div>
+        </div>
+        <ion-icon color="medium" style="float: right; padding-left: 3px;" slot="end" name="arrow-forward"
+          (click)="botoSkip()"></ion-icon>
+      </ion-slide>
+      <ion-slide style="padding-bottom: 25px;">
+        <ion-icon color="medium" style="float: left; padding-right: 3px;" slot="end" name="arrow-back-outline"
+          (click)="botoBack()"></ion-icon>
+        <div class="container2">
+          <img src="../../../assets/dieta.jpg" alt="Avatar" class="image">
+          <div class="overlay">
+            <div class="text">Seleccionar</div>
+            <!--Si seleccionas esta dieta FitnessDay te va a programar una dieta en base a tu físico, edad y programa que escogiste.-->
+          </div>
+        </div>
+        <ion-icon color="medium" style="float: right; padding-left: 3px;" slot="end" name="arrow-forward"
+          (click)="botoSkip()"></ion-icon>
+      </ion-slide>
+    </ion-slides>
+
+  </ion-card>
+  <ion-content *ngIf="!Dieta">
+
+    <ion-grid fixed>
+
+      <ion-label style="padding-left: 10px;" coloR="medium">{{Comidas_predeterminadas}}</ion-label>
+      <!--      Comidaaaaas     -->
+      <ion-row>
+
+        <ion-col size="12" size-md="6" *ngFor="let speaker of speakers; let i=index">
+
+
+
+          <ion-item routerLink="{{speaker.link}}" [disabled]="Disabled" [attr.data-target]="i" color="aye" detail="false" lines="none"
+            class="speaker-item">
+            <ion-avatar slot="start" >
+              <img [src]="speaker.profilePic" [alt]="speaker.name + ' profile picture'">
+            </ion-avatar>
+
+            <ion-label >
+              <h2>{{speaker.name}}</h2>
+            </ion-label>
+            <ion-badge  slot="end" color="aye">{{kcals[i]}} kcal</ion-badge><!-- 
+            <ion-button slot="end" style="--margin:0px; --border-radius: 50%;" size="small" color="light" (click)="test(speaker)">
+              <ion-icon name="close-sharp"></ion-icon>
+            </ion-button> -->
+
+
+
+
+
+          </ion-item>
+
+          <!-- <ion-item *ngIf="Drop">
+
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  {{speaker.about}}
+                </ion-col>
+                <ion-col>
+                  <ion-input [attr.id]="i+'a'" align="right" placeholder="kcal" id="speaker"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+          <ion-item *ngIf="Drop">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  {{speaker.about2}}
+                </ion-col>
+                <ion-col>
+                  <ion-input align="right" placeholder="kcal"></ion-input>
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+
+          </ion-item> -->
+
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+    <hr>
+    <ion-label style="padding-left: 15px;" color="medium">Comidas personalizadas</ion-label>
+    <br>
+
+
+    <ion-card *ngFor="let item of mylist;let i" id="yourDiv">
+
+
+      <b>
+        <ion-item color="aye">
+          <ion-label>
+            {{item.Nom}}
+          </ion-label>
+        </ion-item>
+
+      </b>
+      <ion-item>
+        <ion-textarea disabled readonly>{{item.Descripcio}}</ion-textarea>
+      </ion-item>
+    </ion-card>
+    <!-- Input -->
+    <ion-list *ngIf="showI">
+      <ion-card color="light" style="padding: 10px;">
+        <form>
+          <b>
+            <ion-item color="light">
+              <ion-label>Titulo
+                <ion-icon name="create-sharp"></ion-icon>
+                <ion-input id="nom" color="aye" placeholder="Desayuno"></ion-input>
+              </ion-label>
+            </ion-item>
+            <ion-item color="light">
+              <ion-label>Descripcion
+                <ion-icon name="create-sharp"></ion-icon>
+                <ion-textarea id="descripcion" color="aye" placeholder="- 2 huevos fritos&#10;- 1 batido de frutas">
+                </ion-textarea>
+              </ion-label>
+            </ion-item>
+          </b>
+        </form>
+        <ion-button (click)="agregar_Menjar()" color="aye">OK</ion-button>
+        <ion-button (click)="showI=!showI" color="aye">cancelar</ion-button>
+      </ion-card>
+    </ion-list>
+    
+    <ion-button color="aye" (click)="showI=!showI">
+      <ion-icon name="add-circle-sharp"></ion-icon>
+    </ion-button>
+    <ion-button color="danger" (click)="borrar()">
+      <ion-icon name="remove-circle-sharp"></ion-icon>
+    </ion-button>
+    <br>
+    <br>
+    <ion-button color="aye" *ngIf="ShowReload" (click)="reload()">
+      <ion-icon name="reload-sharp"></ion-icon>
+    </ion-button>
+    <ion-label>Total {{Total}} kcal</ion-label>
+    <p>
+      
+    </p>
+    <ion-button (click)="fet()" color="aye">
+      Hecho!
+    </ion-button>
+  </ion-content>
+
+</ion-content>
+<ion-content *ngIf="showM">
+  <ion-item>
+
+    <ion-img class="logo" size="small" style="width: 50px; height: 50px;" src="../../../assets/tick.png"></ion-img>
+    <span style="padding-left: 25px; ">Felicidades completaste las comidas del dia!! <br>Puedes avanzar con el
+      siguiente dia si has completado los entrenamientos</span>
+  </ion-item>
+  <ion-button (click)="no_fet()" color="aye">
+    NO HECHO
+  </ion-button>
+  <ion-button routerLink="/app/tabs/calendario" color="aye">
+    <ion-icon name="calendar-outline"></ion-icon>
+  </ion-button>
+  <ion-button routerLink="/app/tabs/ejercicios" color="aye">
+    <ion-icon name="barbell-sharp"></ion-icon>
+  </ion-button>
+</ion-content>
+
+<!--
+
+  
+-->

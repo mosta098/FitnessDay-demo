@@ -1,0 +1,13 @@
+[ 
+  {"name" : "Calentamiento inicial a2", "duracion":"5-10 min","href":"../../../assets/ejercicios/ejercicio_t/bicicleta.png"},
+  {"name" : "Burpees", "series" : "1 min","descanso":"| descanso: 30min","href":"../../../assets/ejercicios/ejercicio_t/extension quadriceps.png"},
+  {"name" : "Saltos al cajón", "series" : "3 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/femoral.png"},
+  {"name" : "Dominadas", "series" : "3 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/soleo.png"},
+  {"name" : "Flexiones", "series" : "3 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/peckdeck.jpg"},
+  {"name" : "Batidas de cuerda", "series" : "2 min","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/jalon.png"},
+  {"name" : "Mountain Climbers", "series" : "1 min","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/pres.jpg"},
+  {"name" : "Sentadillas","series" : "3 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/triceps.png"},
+  {"name" : "Abdominales ", "series" : "3 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/curl.png"},
+  {"name" : "Planxa frontal", "series" : "3 x 25 seg","descanso":"| descanso:30 seg","href":"../../../assets/ejercicios/ejercicio_t/plancha.png"},
+  {"name" : "Actividad aerobica","duracion":"15-20 min","href":"../../../assets/ejercicios/ejercicio_t/bicicleta.png"}
+  ]

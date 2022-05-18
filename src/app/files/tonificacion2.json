@@ -1,0 +1,14 @@
+[ 
+  {"name" : "Calentamiento inicial", "duracion":"5-10 min","href":"../../../assets/ejercicios/ejercicio_t/bicicleta.png"},
+  {"name" : "Extension quadriceps", "series" : "4 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/extension quadriceps.png"},
+  {"name" : "Femoral en maquina", "series" : "4 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/femoral.png"},
+  {"name" : "Soleo", "series" : "4 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/soleo.png"},
+  {"name" : "PECK DECK", "series" : "4 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/peckdeck.jpg"},
+  {"name" : "Jalon", "series" : "5 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/jalon.png"},
+  {"name" : "Pres militar", "series" : "4 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/pres.jpg"},
+  {"name" : "Jalon triceps","series" : "4 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/triceps.png"},
+  {"name" : "Curl biceps", "series" : "4 x 12-15","descanso":"| descanso: 1min","href":"../../../assets/ejercicios/ejercicio_t/curl.png"},
+  {"name" : "Crunch abdominales", "series" : "4 x 20-25","descanso":"| descanso:30 seg","href":"../../../assets/ejercicios/ejercicio_t/crunch.png"},
+  {"name" : "Planxa frontal", "series" : "4 x 25 seg","descanso":"| descanso:30 seg","href":"../../../assets/ejercicios/ejercicio_t/plancha.png"},
+  {"name" : "Actividad aerobica","duracion":"15-20 min","href":"../../../assets/ejercicios/ejercicio_t/bicicleta.png"}
+  ]

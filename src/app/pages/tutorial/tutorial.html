@@ -1,0 +1,40 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color='primary' (click)="startApp()" [hidden]="!showSkip">Skip</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="false">
+    <ion-slide>
+      <img src="assets/img/ica-slidebox-img-1.png" class="slide-image" />
+      <h2 class="slide-title">
+        Thanks for download 
+        <b>FITNESSDAY</b>
+      </h2>
+      <p>
+        The 
+        <b>FitnessDay App</b> is on alpha phase, we will add more functions for the final version that it will be soon.
+      </p>
+      <ion-icon color="aye" slot="end" name="arrow-forward"></ion-icon>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="assets/img/ica-slidebox-img-3.png" class="slide-image" />
+      <h2 class="slide-title">Donate to this project?</h2>
+      <p>
+        <b>$$$ </b> FitnessDay is a free app that we want to share it with all the people but if you want to donate you're free to do it</p>
+    </ion-slide>
+
+    <ion-slide>
+      
+      <h2 class="slide-title">Ready to Workout?</h2>
+      <ion-button fill="clear" (click)="startApp()">
+        Continue
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

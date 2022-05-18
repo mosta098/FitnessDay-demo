@@ -1,0 +1,26 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table {
+  border: 1px solid black;
+}
+
+ion-list {
+  padding: 5px;
+}
+
+ion-slides {
+  height: 100%;
+  width: 100%;
+}
+
+ion-content {
+  font-size: 15px;
+}
+
+ion-label {
+  padding: 5%;
+}
+/*# sourceMappingURL=ejercicios.page.css.map */
